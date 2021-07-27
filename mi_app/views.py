@@ -36,3 +36,6 @@ def json(request):
         "hobbies": ["Riding", "Reading", "Coding"]
     }
     return JsonResponse(names)
+
+def home(request):
+    return render(request, 'home.html')
