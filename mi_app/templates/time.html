@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Que Hora'Son?</title>
+
+</head>
+    <body>
+        <div class="container style="opacity: 10%; background-image: url(https://st.depositphotos.com/1025674/1715/v/950/depositphotos_17155901-stock-illustration-time-background.jpg); background-size:cover; background-position: center; background-repeat: no-repeat">
+            <div class="row text-center justify-content-between mx-4">
+                <h2 class="text-primary text-cemter">La hora actual en:</h2>
+                    <br><br><br>
+                    <div class="col-4 text-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://s3.amazonaws.com/blog.avt.prd/uploads/2020/07/27170936/santiago-de-chile-880x580.jpg" class="card-img-top" alt="image" style="height:180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Santiago 🇨🇱 </h5>
+                                <p class="card-text">{{fullday}} {{date}}</p>
+                                <p class="card-text">{{localtime}}</p>
+                                <a href="times" class="btn btn-primary">Actualizar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://www.venteacanada.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-29-at-10.58.00-AM-1024x631.png" class="card-img-top" alt="image" style="height:180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Montreal 🇨🇦</h5>
+                                <p class="card-text">{{fullday}} {{date}}</p>
+                                <p class="card-text" id="date">{{localtime}}</p>
+                                <a href="times" class="btn btn-primary">Actualizar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://www.riotgames.com/darkroom/1440/0dffc174c72ce3dbaa23a8650557b624:79c68bf22b496b9ffdab7bcb34c930d1/dublin.jpg" class="card-img-top" alt="image" style="height:180px">
+                            <div class="card-body">
+                                <h5 class="card-title">Dublin 🇨🇮</h5>
+                                <p class="card-text">{{fullday}} {{date}}</p>
+                                <p class="card-text" id="date2">{{localtime}}</p>
+                                <a href="times" class="btn btn-primary">Actualizar</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <script>
+        setInterval(
+            function() {
+                const d = new Date();
+                const datestring = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+                //console.log(datestring);
+            $('#date').html(datestring);
+                }, 
+                1000
+        );
+    </script>
+</html>

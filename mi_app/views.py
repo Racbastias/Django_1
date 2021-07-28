@@ -1,6 +1,9 @@
 
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import JsonResponse
+from time import gmtime, strftime, localtime
+from datetime import datetime
+
 
 def func3(request, name):
     return HttpResponse(f'Hola hola hola {name}')
@@ -38,4 +41,17 @@ def json(request):
     return JsonResponse(names)
 
 def home(request):
-    return render(request, 'home.html')
+    data = {
+        "moto" : "Honda CB500X 2016"
+    }
+    return render(request, 'home.html', data)
+
+def times(request):
+    information = {
+        "day": strftime("%d", localtime()),
+        "mes": strftime("%b", localtime()),
+        "fullday": strftime("%A", localtime()),
+        "date": strftime("%d %B %Y", localtime()),
+        "localtime": strftime("%H:%M:%S", localtime())
+    }
+    return render(request, 'time.html', information)

@@ -13,5 +13,6 @@ urlpatterns = [
     path('blogs/<int:number>/edit', views.edit),
     path('blogs/<int:number>/delete', views.destroy),
     path('blogs/json', views.json),
-    path('home', views.home)
+    path('home', views.home),
+    path('times', views.times)
 ]
