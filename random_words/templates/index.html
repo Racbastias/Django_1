@@ -9,35 +9,15 @@
     <title>Que Hora'Son?</title>
 
 </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <body style="opacity: 70%; background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/12/Grey-Washed-Wall-Seamless-Pattern.jpg); background-size:cover; background-position: center; background-repeat: repeat">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="random">User: {{request.session.name}}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="times">Times</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="tokens">Users</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -46,54 +26,22 @@
                 </div>
             </div>
         </nav>
-        <div class="container style="opacity: 10%; background-image: url(https://st.depositphotos.com/1025674/1715/v/950/depositphotos_17155901-stock-illustration-time-background.jpg); background-size:cover; background-position: center; background-repeat: no-repeat">
-            <div class="row text-center justify-content-between mx-4">
-                <h2 class="text-secondary text-cemter">Random Numbers:</h2>
+        <div class="container">
+            <div class="row text-center justify-content-between">
+                <h2 class="text-light text-center my-3">Random Password</h2>
                     <br><br><br>
-                    <div class="col-4 text-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://s3.amazonaws.com/blog.avt.prd/uploads/2020/07/27170936/santiago-de-chile-880x580.jpg" class="card-img-top" alt="image" style="height:180px">
+                    <div class="col"></div>
+                    <div class="col-6 text-center">
+                        <div class="card" style="width: 100%;">
+                            <img src="https://www.venteacanada.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-29-at-10.58.00-AM-1024x631.png" class="card-img-top" alt="image">
                             <div class="card-body">
-                                <h5 class="card-title">Santiago 🇨🇱 </h5>
-                                <p class="card-text">{{fullday}} {{date}}</p>
-                                <p class="card-text">{{localtime}}</p>
-                                <a href="times" class="btn btn-primary">Actualizar</a>
+                                <h5 class="card-title">Password: <span class="text-success">{{randomword}}</span></h5>
+                                <h5>Counter: <span class="card-title text-success">{{counter}}</span></h5>
+                                <a href="random" class="btn btn-primary my-2">Actualizar</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 text-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.venteacanada.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-29-at-10.58.00-AM-1024x631.png" class="card-img-top" alt="image" style="height:180px">
-                            <div class="card-body">
-                                <h5 class="card-title">Montreal 🇨🇦</h5>
-                                <p class="card-text">{{fullday}} {{date}}</p>
-                                <p class="card-text" id="date">{{localtime}}</p>
-                                <a href="times" class="btn btn-primary">Actualizar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.riotgames.com/darkroom/1440/0dffc174c72ce3dbaa23a8650557b624:79c68bf22b496b9ffdab7bcb34c930d1/dublin.jpg" class="card-img-top" alt="image" style="height:180px">
-                            <div class="card-body">
-                                <h5 class="card-title">Dublin 🇨🇮</h5>
-                                <p class="card-text">{{fullday}} {{date}}</p>
-                                <p class="card-text" id="date2">{{localtime}}</p>
-                                <a href="times" class="btn btn-primary">Actualizar</a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col"></div>
             </div>
         </div>
-    <script>
-        setInterval(
-            function() {
-                const d = new Date();
-                const datestring = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
-                //console.log(datestring);
-            $('#date').html(datestring);
-                }, 
-                1000
-        );
-    </script>
 </html>
