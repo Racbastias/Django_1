@@ -24,9 +24,6 @@ def reset(request):
     counter = request.session['counter']= 0
     return redirect("/random")
     
-def session_info(request):
-    request.session['name'] = request.POST['name']
-    datos = {
-        'request.session.name' : request.session['name']
-    }
-    return (request, "index.html", datos)
+def login(request):
+    return render('login.html')
+
