@@ -30,18 +30,20 @@
             <div class="row text-center justify-content-between">
                 <h2 class="text-light text-center my-3">Random Password</h2>
                     <br><br><br>
-                    <div class="col"></div>
-                    <div class="col-6 text-center">
-                        <div class="card" style="width: 100%;">
-                            <img src="https://www.venteacanada.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-29-at-10.58.00-AM-1024x631.png" class="card-img-top" alt="image">
+                    <div class="col-3"></div>
+                    <div class="col-6 text-center justify-content-center">
+                        <div class="card" style="width: 80%;">
+                            <img id="ruleta" src="https://i.pinimg.com/originals/f1/69/37/f16937aee1202bcba272a69845d55c99.gif" class="card-img-top" alt="image">
                             <div class="card-body">
                                 <h5 class="card-title">Password: <span class="text-success">{{randomword}}</span></h5>
-                                <h5>Counter: <span class="card-title text-success">{{counter}}</span></h5>
-                                <a href="random" class="btn btn-primary my-2">Actualizar</a>
+                                <h5>Counter: <span class="card-title {% if request.session.counter == 10 %} text-danger {% else %} text-success {% endif%}" id="counter">{{request.session.counter}}</span></h5>
+                                <a href="random" class="btn btn-primary my-2 {% if request.session.counter == 10 %} disabled {% endif%}" aria-disabled="true">Actualizar</a>
+                                <a href="reset" class="btn btn-danger my-2">Reset Counter</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col"></div>
+                    <div class="col-3"></div>
             </div>
         </div>
+    
 </html>
