@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Login</title>
+<!-- HAY QUE ARREGLAR LA BARRA QUE MUESTRA LA INFORMACIÓN, CORREGIR LOS BOTONES Y HACER EL VIEWS.PY-->
+<!-- ESTA LISTO EL TEMPLATE DE LOGIN Y EL TEMPLATE DE JUEGO, PERO FALTA ARREGLAR COSAS PEQUEÑAS-->
+</head>
+    <body style="background-image: url(https://wallpaperaccess.com/full/979426.jpg); background-size:100%; background-repeat:no-repeat">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="opacity:0.8">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="random"> {{request.session.name}} <span class="text-warning">{{request.session.gold}} Gold</span></a>
+            </div>
+        </nav>
+        <div class="row m-3">
+            <div class="col-2 justify-content-between my-3" style="opacity:0.8">
+                <div class="card">
+                    <img id="ruleta" src="https://static.wikia.nocookie.net/jutsupedia/images/5/58/Jutsu_Clon_de_Sombra.gif/revision/latest?cb=20120111144419&path-prefix=es" class="card-img-top" alt="image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Jutsu clones de sombra <span class="text-success">{{randomword}}</span></h5>
+                        <h5>Counter: <span class="card-title {% if request.session.counter == 10 %} text-danger {% else %} text-success {% endif%}" id="counter">{{request.session.counter}}</span></h5>
+                        <a href="random" class="btn btn-primary my-2 {% if request.session.counter == 10 %} disabled {% endif%}" aria-disabled="true">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-2 justify-content-between my-3" style="opacity:0.8">
+                <div class="card">
+                    <img id="ruleta" src="https://static.wikia.nocookie.net/jutsupedia/images/d/d2/Elemento_Fuego_Jutsu_Gran_Bola_de_Fuego.gif/revision/latest?cb=20120106141858&path-prefix=es" class="card-img-top" alt="image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Jutsu Bola de Fuego <span class="text-success">{{randomword}}</span></h5>
+                        <h5>Counter: <span class="card-title {% if request.session.counter == 10 %} text-danger {% else %} text-success {% endif%}" id="counter">{{request.session.counter}}</span></h5>
+                        <a href="random" class="btn btn-primary my-2 {% if request.session.counter == 10 %} disabled {% endif%}" aria-disabled="true">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col-2 justify-content-between my-3" style="opacity:0.8">
+                <div class="card">
+                    <img id="ruleta" src="https://media2.giphy.com/media/rrTXn4zEMp008/200.gif" class="card-img-top" alt="image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Copy-Ninja <span class="text-success">{{randomword}}</span></h5>
+                        <h5>Counter: <span class="card-title {% if request.session.counter == 10 %} text-danger {% else %} text-success {% endif%}" id="counter">{{request.session.counter}}</span></h5>
+                        <a href="random" class="btn btn-primary my-2 {% if request.session.counter == 10 %} disabled {% endif%}" aria-disabled="true">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-2 justify-content-between my-3" style="opacity:0.8">
+                <div class="card">
+                    <img id="ruleta" src="https://media.tenor.com/images/2525d6f4776cdb2665c4a21e53d55cd9/tenor.gif" class="card-img-top" alt="image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Jutsu Sexy <span class="text-success">{{randomword}}</span></h5>
+                        <h5>Counter: <span class="card-title {% if request.session.counter == 10 %} text-danger {% else %} text-success {% endif%}" id="counter">{{request.session.counter}}</span></h5>
+                        <a href="random" class="btn btn-primary my-2 {% if request.session.counter == 10 %} disabled {% endif%}" aria-disabled="true">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8 float-end my-3" style="opacity:0.8">
+                <div class="card">
+                    <div data-bs-spy="scroll" class="card-body">
+                        <h5 class="card-title">Informacion <span class="text-success">{{randomword}}</span></h5>
+                        <h5>Counter: <span class="card-title {% if request.session.counter == 10 %} text-danger {% else %} text-success {% endif%}" id="counter">{{request.session.counter}}</span></h5>
+                        <a href="random" class="btn btn-primary my-2 {% if request.session.counter == 10 %} disabled {% endif%}" aria-disabled="true">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

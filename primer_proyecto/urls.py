@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('mi_app.urls')),
     path('', include('random_words.urls')),
+    path('', include('ninja_gold.urls')),
     path('admin/', admin.site.urls),
 ]
