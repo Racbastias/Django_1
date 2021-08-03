@@ -1,31 +1,13 @@
 
 from django.shortcuts import render, HttpResponse, redirect
 from django.utils.crypto import get_random_string
+import random
 
 USERS = [
     {'nombre': 'Ruben','email': 'ruben@login.cl','clave': '123456'},
     {'nombre': 'Karen','email': 'karen@login.cl','clave': '141414'},
     {'nombre': 'Antonia','email': 'antonia@login.cl','clave': '232323'}
 ]
-
-def random_page(request):
-    counter = request.session.get('counter', 0)
-    if 'counter' not in request.session:
-        request.session['counter'] = 0
-    
-    if counter == 10:
-        context = {'randomword': ''}
-    else:
-        request.session['counter'] +=1
-        context = {
-        'randomword': get_random_string(length=14),
-    }
-    return render(request, "index.html", context)
-
-def reset(request):
-    request.session['counter']= 0
-    return redirect("/random")
-    
 
 def ninja_login(request):
     if request.method == 'GET':
@@ -54,13 +36,49 @@ def ninja_login(request):
         request.session['name'] = name_from_form
         request.session['pass'] = pass_from_form
         request.session['email'] = email_from_form
+        request.session['messages'] = []
+        request.session['hp'] = 50
         return redirect("/ninja_gold")
     
 def ninja_gold(request):
-    request.session['counter']= 0
-    return render(request, "ninja_gold.html")
+    
+    if 'hp' not in request.session:
+        request.session['hp'] = 50
+    if 'messages' not in request.session:
+        request.session['messages'] = []
+    context = {
+        'hp' : request.session['hp']
+    }
+    return render(request, "ninja_gold.html", context)
     
 def process_money(request):
-    request.session['counter']= 0
+    hp = request.session['hp']
+    # generar numero al azar
+    form_ninja = request.POST['ninja']
+    if form_ninja == 'kakashi':
+        value = random.randint(10,20)
+        message = f'You won {value} by Copy Ninja'
+    elif form_ninja == 'saske':
+        value = random.randint(5,10)
+        message = f'You have won {value} by Fire Ball'
+    elif form_ninja == 'naruto1':
+        value = random.randint(2,5)
+        message = f'You have won {value} by Shadow Clones'
+    elif form_ninja == 'naruto2':
+        value = random.randint(-50,50)
+        if value < 0:
+            message = f'You have lost {value * -1} by Fake Jutsu Sexy'
+        elif value == 0:
+            message = f'You have not been hit; your HP is not altered'
+        else:
+            message = f'You have won {value} by Jutsu Sexy'
+    # sumarselos al HP
+    request.session['hp'] += value
+    request.session['messages'].append(message)
+    #redirigir
     return redirect("/ninja_gold")
-    
+
+def reborn(request):
+    request.session['hp'] = 50
+    request.session['messages'] = []
+    return redirect("/ninja_gold")
